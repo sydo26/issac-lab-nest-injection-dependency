@@ -5,6 +5,7 @@ import { CreateUserDTO } from "../dtos/user.dto";
 @Controller('users')
 export class UsersController {
   constructor(
+    @Inject('CREATE_USER_USE_CASE')
     private readonly createUserUseCase: ICreateUserUseCase
   ) {}
 

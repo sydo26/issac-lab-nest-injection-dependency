@@ -6,16 +6,34 @@ import { DatabaseModule } from "src/infra/database/database.module";
 import { PrismaUserRepository } from "src/infra/database/prisma/repositories/prisma.user.repository";
 import { UsersController } from "./users.controller";
 
+// exemplo com classes abstratas
+// @Module({
+//   imports: [DatabaseModule],
+//   controllers: [UsersController],
+//   providers: [
+//     {
+//       provide: IUserRepository,
+//       useClass: PrismaUserRepository
+//     },
+//     {
+//       provide: ICreateUserUseCase,
+//       useClass: DbCreateUserUseCase
+//     }
+//   ]
+// })
+// export class UsersModule {}
+
+// exemplo com interfaces
 @Module({
   imports: [DatabaseModule],
   controllers: [UsersController],
   providers: [
     {
-      provide: IUserRepository,
+      provide: 'PRISMA_USER_REPOSITORY',
       useClass: PrismaUserRepository
     },
     {
-      provide: ICreateUserUseCase,
+      provide: 'CREATE_USER_USE_CASE',
       useClass: DbCreateUserUseCase
     }
   ]

@@ -1,11 +1,11 @@
-import { Injectable } from "@nestjs/common";
+import { Inject, Injectable } from "@nestjs/common";
 import { CreateUserParams, CreatedUserReturn } from "src/app/domain/types/user-params";
 import { ICreateUserUseCase } from "src/app/domain/usecases/create-user";
 import { IUserRepository } from "../repositories/user-repository";
 
-@Injectable()
 export class DbCreateUserUseCase implements ICreateUserUseCase {
   constructor(
+    @Inject('PRISMA_USER_REPOSITORY')
     private readonly userRepository: IUserRepository
   ) {}
 
