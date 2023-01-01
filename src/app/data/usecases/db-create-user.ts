@@ -5,7 +5,7 @@ import { IUserRepository } from "../repositories/user-repository";
 
 export class DbCreateUserUseCase implements ICreateUserUseCase {
   constructor(
-    @Inject('PRISMA_USER_REPOSITORY')
+    @Inject('USER_REPOSITORY')
     private readonly userRepository: IUserRepository
   ) {}
 

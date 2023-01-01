@@ -29,7 +29,7 @@ import { UsersController } from "./users.controller";
   controllers: [UsersController],
   providers: [
     {
-      provide: 'PRISMA_USER_REPOSITORY',
+      provide: 'USER_REPOSITORY',
       useClass: PrismaUserRepository
     },
     {
